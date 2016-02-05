@@ -7,7 +7,7 @@ class Util {
   static public function getFilesContents($pattern) {
     $files = self::getPaths($pattern);
     $included = array();
-    $str = "";    
+    $str = "";
     foreach ($files as $file) {
       if (!in_array($file, $included)) {
         array_push($included, $file);
@@ -76,6 +76,15 @@ class Util {
     $statusCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
     curl_close($ch);
     return $res;
+  }
+
+  static public function compileScss($scss, $to) {
+    $tmpfname = tempnam("/tmp", "style.css");
+    $handle = fopen($tmpfname, "w");
+    fwrite($handle, $scss);
+    fclose($handle);    
+    shell_exec("/usr/local/bin/scss $tmpfname $to");    
+    unlink($tmpfname);
   }
 
 }

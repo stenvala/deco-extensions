@@ -1,0 +1,56 @@
+input[type="text"], input[type="password"], textarea { 
+  padding: 4px;
+  border: 1px solid $light-color;
+  border-radius: 4px;
+}
+
+// editor related
+.ace-editor {
+  text-align: left;
+  border: 1px solid #ccc;
+  border-radius: 4px;    
+  height: 600px;    
+}
+
+.ace-editor-small {
+  height: 200px;
+}
+
+.page-editor {
+  width: 1000px;
+  margin-bottom: 2px;
+}
+
+.page-editor-title {
+  display: block;
+  font-weight: bold;
+  margin-top: 15px;
+  margin-bottom: 3px;
+}
+
+// selections
+
+.select-text, .select-text-container {
+  border: 1px dotted rgb(200,200,200);  
+  color: white;
+  padding: 0px 5px 0px 5px;  
+}
+
+.select-text {
+  cursor: pointer;
+}
+
+.select-text.has-yes, .select-text-container.has-yes {
+  background-color: #5cb85c;    
+}
+
+.select-text.has-not, .select-text-container.has-not {
+  background-color: #d9534f;    
+}
+
+.select-text.has-neutral, .select-text-container.has-neutral {
+  background-color: #534fd9;    
+}
+.select-text.has-thirdoption, .select-text-container.has-thirdoption {
+  background-color: #d9984f;
+}

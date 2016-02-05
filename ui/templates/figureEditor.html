@@ -1,0 +1,65 @@
+<div class="overlay">
+  <div class="container width800 center">
+    <!-- NEEDED TO CHANGE -->
+    <h1>Muokkaa kuvaa</h1>
+
+    <div ng-show="show == 'loading'" class="alert alert-info center">  
+      Luetaan kuvaa
+    </div>
+
+    <div ng-show="show == 'uploading'" class="alert alert-info">  
+      Ladataan kuvaa palvelimelle
+    </div>
+
+    <div ng-show="show == 'uploaded'" class="alert alert-success">  
+      Kuva ladattu
+    </div>
+
+
+    <div ng-show="show == 'uploadedError'"> 
+      <div class="alert alert-danger">  
+        Virhe kuvan lataamisessa
+      </div>
+      <p>
+        <span class="btn btn-danger" ng-click="cancel()">Peruuta</span>
+      </p>
+    </div>
+
+
+    <div ng-show="show == 'loaded'">
+
+      <span class="page-editor-title">Maksimi koko</span>
+      <input type="text" ng-model="params.resize" class="page-editor width400 center">     
+      
+      <span class="page-editor-title">Kuvan nimi</span>
+      <input type="text" ng-model="params.name" class="page-editor width400 center">     
+      <br>
+      <span class="select-text has-yes" ng-show="prefix" ng-click="prefix = !prefix">Nimeen lisätään automaattinen päivämäärätunniste</span>
+      <span class="select-text has-not" ng-hide="prefix" ng-click="prefix = !prefix">Nimeen ei lisätä automaattista päivämäärätunnistetta</span>
+       (klikkaa vaihtaaksesi)
+      
+      <span class="page-editor-title">Lisää tekstiin</span>
+      
+      <button class="btn" ng-class="{'btn-primary' : type == 'plain'}" ng-click="type='plain'">Pelkkänä kuvana</button>
+      
+      <button class="btn" ng-class="{'btn-primary' : type == 'par'}" ng-click="type='par'">Omana kappaleena</button>      
+     
+      <button class="btn" ng-class="{'btn-primary' : type == 'per'}" ng-click="type='per'">Täydellisenä</button>  
+      
+      <span class="page-editor-title">Kuva</span>
+      
+
+      <canvas width="750" height="500"              
+              deco-canvas-follow-mouse="mousePosition"        
+              ng-click="recordMouseClick()">
+      </canvas>
+
+      <p>
+        <span class="btn btn-primary" ng-click="saveToServer()">Tallenna</span>
+        <span class="btn btn-danger" ng-click="cancel()">Peruuta</span>
+      </p>
+
+    </div>
+  </div>
+
+</div>

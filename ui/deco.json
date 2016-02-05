@@ -1,0 +1,34 @@
+{
+  "bowerBase": "bower_components",
+  "bower": [
+    "angularjs/angular.min.js",
+    "angular-route/angular-route.min.js",
+    "angular-touch/angular-touch.min.js",
+    "angular-sanitize/angular-sanitize.min.js",
+    "mobile-angular-ui/dist/js/mobile-angular-ui.min.js",
+    "angular-filter/dist/angular-filter.min.js",
+    "ngstorage/ngStorage.min.js",
+    "angular-socialshare/angular-socialshare.min.js",
+    "angular-resource/*.min.js",
+    "angular-animate/angular-animate.min.js",
+    "angularjs-toaster/toaster.js",
+    "angular-bootstrap/ui-bootstrap-tpls.min.js",
+    "angular-translate/angular-translate.min.js",
+    "angular-translate-loader-url/angular-translate-loader-url.min.js",
+    "ace-builds/src-noconflict/ace.js",
+    "ace-builds/src-noconflict/theme-github.js",
+    "ace-builds/src-noconflict/mode-html.js",
+    "angular-ui-ace/ui-ace.js",
+    "angular-dialog-service/dist/dialogs.min.js",
+    "angular-ui-bootstrap-datetimepicker/datetimepicker.js",
+    "jquery/jquery.min.js",
+    "jquery-backstretch/jquery.backstretch.min.js"
+  ],
+  "decoBase": "js",
+  "deco": [
+    "utils/*.js",
+    "deco.js",
+    "*.js",
+    "*/*.js"
+  ]
+}

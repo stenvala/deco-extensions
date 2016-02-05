@@ -1,0 +1,103 @@
+<nav class="navigation" id="navigation" deco-nav>   
+  <div class="nav-container">    
+    <!-- show logo -->
+    <div class="hide-large nav-logo nav-brand"
+         deco-toggle                   
+       element="nav,.main-content"
+       toggle-class="active,show-nav"         
+         >
+      [[logoTitle]]
+    </div>   
+
+    <!-- show links navigation -->
+    <div class="hide-medium hide-small link-icon hand" 
+         deco-toggle                   
+         element="nav,.main-content,.top-hide"
+         toggle-class="show-links,show-links,show">
+      <i class="fa fa-external-link"></i>
+    </div>   
+
+    <!-- links -->
+    <div class="mainlinks">
+      <!-- mainlinks -->
+      <div class="mainlinks-container">
+        <deco-nav-links links="links" does-fit="doesFit" type="main">          
+        </deco-nav-links>        
+      </div>     
+
+      <!-- mainlinks that don't fit into normal view -->
+      <div class="showmore-container"            
+           ng-show="anyHidden">
+
+        <div class="showmorelink">
+          <i class="fa fa-plus-square-o"></i>    
+        </div>
+
+        <div class="showmore-mainlinks-container">        
+          <deco-nav-links links="links" does-fit="doesFit" type="extended">
+
+          </deco-nav-links>         
+        </div>
+
+      </div>            
+
+      <!-- login -->
+      <div class="login-container"          
+           ng-show="root.ishttps && root.loginfun && !root.isLoggedIn">      
+        <div class="login"
+             deco-toggle
+             element=".login-layer"
+             toggle-class="active">
+          <i class="fa decor fa-sign-in"></i>Sign in
+        </div>            
+        <div class="login-layer">
+          Käyttäjätunnus<br>
+          <input type="text" ng-model="userName">
+          <br>
+          Salasana<br>
+          <input type="password" ng-model="password">
+          <br>          
+          <br>
+          <button 
+            ng-click="root.loginfun(userName, password)"
+            class="btn btn-primary column">Kirjaudu sisään</button>                                
+          <br>
+          <br>
+          <button 
+            deco-toggle
+            element=".login-layer"
+            toggle-class="active"
+            class="btn btn-danger column">Peruuta</button>
+        </div>
+      </div>
+
+      <!-- Admin -->
+      <div class="login-container" ng-show="root.ishttps && root.isLoggedIn">         
+        <div class="login logged-in">
+          <i class="fa decor fa-user"></i>{{root.displayName}}        
+        </div>
+        <div class="login-mainlinks-container">             
+          <div class="mainlink-container">
+            <div class="mainlink"
+                 ng-click="root.logoutfun()">
+              <i class="fa fa-sign-out decor"></i>Sign out            
+              <i class="action fa fa-chevron-right"></i>
+            </div>                                                                     
+          </div>        
+
+          <deco-nav-links links="adminLinks" does-fit="doesFit" type="admin"></deco-nav-links>
+
+        </div>
+      </div>    
+
+      <!-- close link bar -->
+    </div>
+
+    <!-- Logo at the end -->
+    <div class="hide-large nav-logo">
+      <img src="[[logoImage]]">
+    </div>
+
+  </div>
+</nav>
+

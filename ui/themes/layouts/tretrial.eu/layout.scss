@@ -1,0 +1,213 @@
+// All the general settings styles are here
+body {
+  font-family: $font-family;  
+  font-size: 15px;
+  margin: 0px;
+  padding: 0px;         
+}
+
+.loading {
+  position: absolute;
+  height: 0px;
+  width: 100%;
+  opacity: 0;
+  transition: opacity .2s ease-in-out, .3s cubic-bezier(1,0,1,0);      
+}
+
+.loading.active {
+  height: 300px;
+  opacity: 1;
+  transition: opacity .4s ease-in-out;
+}
+
+.loaded {
+  opacity: 1;
+  transition: opacity .4s ease-in-out;
+}
+
+.loaded.inprogress {
+  opacity: 0;
+  transition: opacity .4s ease-in-out;
+}
+
+.small {
+  font-size: 80%;
+}
+
+.logo {
+  font-family: $logo-font-family;
+  width: 100%;
+  position: relative;
+  font-weight: bold;     
+  // menu inside logo for mobile and tablet
+  .menu, .right-menu {
+    @include color-sub-title;
+    font-family: $font-family;
+  }
+}
+
+nav {
+
+  .mainlink-container, .mainlink-extended-container, .login {
+    @include color-top-level-navigation;
+  }
+ 
+  
+  .mainlink-container.active, .mainlink-extended-container.active, .login.active {
+    @include color-top-level-navigation-active;
+  }
+
+  .mainlink:hover, .mainlink-extended:hover, .login:hover {
+    @include color-top-level-navigation-hover;
+    @include link;    
+  }
+
+  .sublink-container, .logged-in {
+    @include color-sub-level-navigation;
+  }
+
+  .sublink-container.active {                        
+    @include color-sub-level-navigation-active;
+  }
+
+  .sublink-container:hover {            
+    @include color-sub-level-navigation-hover;
+    @include link;        
+  }  
+
+}
+
+.mainlink, .sublink, .mainlink-extended, .login {  
+  .decor {
+    @include decor-left; 
+  }
+}
+
+.app-content {
+  //max-width: 1020px;  
+}
+
+.center {
+  text-align: center;
+}
+
+// widths
+.width800 {
+  width: 800px;
+}
+
+.width600 {
+  width: 800px;
+}
+
+.width400 {
+  width: 400px;
+}
+
+.width200 {
+  width: 200px;
+}
+
+.width100 {
+  width: 100px;
+}
+
+.height100 {
+  height: 100px;
+}
+
+.width100p {
+  width: 100%;
+}
+
+// figure
+figure, .center {
+  display: table;
+  margin: auto;
+  padding: 10px 0px 10px 0px;
+  max-width: 100%;
+  overflow: hidden;
+}
+
+figure img, img.block {
+  display: table;
+  margin: auto;  
+  max-width: 100%;
+}
+
+img, video {
+  max-width: 100%;
+  border-radius: 10px;  
+  -webkit-border-radius: 10px;  
+}
+
+img.no-border {
+  border-radius: 0px !important;
+}
+
+figcaption {
+  display: table;
+  padding-top: 10px;
+  margin: auto;
+  font-weight: bold;
+  max-width: 100%;  
+  text-align: center;  
+}
+
+// link
+.deco-link {  
+  @include color-link;
+}
+
+.deco-link:hover {
+  @include link;
+}
+
+.right-absolute {
+  position: absolute;
+  right: 0px;
+}
+
+.drop-area {  
+  border: dashed 4px black;
+  border-radius: 4px;
+  background-color: rgb(224,183,117);
+  text-align: center;
+  display: table-cell;
+  vertical-align: middle;
+}
+
+.hand {
+  @include pointer;
+}
+
+h1 {
+  @include header-1;
+  @include spacing-title;
+}
+h2, h3, h4, h5, h6 {
+  @include color-sub-title;
+  @include spacing-title;
+}
+
+
+table.basic-with-header {
+  td {
+    padding: 5px;
+  }
+  td:first-child {
+    padding-left: 0px;
+  }
+  td:last-child {
+    padding-right: 0px;
+  }
+  td {
+    text-align: center;
+  }
+  thead {
+    border-bottom: 1px solid $navigation-active-background-color;
+    font-weight: bold;
+  }  
+    border-top: 1px solid $navigation-active-background-color;
+    border-bottom: 1px solid $navigation-active-background-color;    
+}

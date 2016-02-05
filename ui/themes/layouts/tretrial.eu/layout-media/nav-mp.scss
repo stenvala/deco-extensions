@@ -1,0 +1,135 @@
+@media screen and (max-width: 960px) {
+
+  nav {
+    position: fixed;
+    z-index: 50;
+    width: 80%;
+    overflow-y: scroll;    
+    left: 0px;
+    top: 0px;
+    bottom: 0px;
+    padding: 0px;        
+    transition: left .5s linear;
+  }
+
+  nav.hidenav {
+    left: -100%;        
+    transition: left .1s linear;
+  }
+  
+  nav .nav-container {        
+    position: absolute;
+    font-size: 15px;    
+    padding-left: 0px;   
+    min-width: 100%;
+    top: 0px;      
+    bottom: 0px;           
+    padding-bottom: 20px;        
+    min-height: 100%;
+  }
+
+  nav {
+    .login-layer.active {
+      width: 80%;
+    }
+  }
+
+  // route links
+  .deco-sub-routes {    
+  }
+
+  .deco-sub-routes-container {
+    display: block;        
+    .deco-separator {      
+      display: none;      
+    }    
+    .decor {
+      @include decor-left;
+    }    
+  }
+  .deco-sub-routes-container:last-of-type {
+    .deco-separator {      
+      display: none;
+    }        
+  }
+
+  .deco-sub-routes-container {
+    @include color-top-level-navigation;
+    @include mobile-remove-margin;
+    display: block;        
+    border-top: 1px solid $navigation-active-sub-background-color;
+  }  
+
+  .routes-sublink {
+    @include color-top-level-navigation; 
+    padding: 10px;
+  }
+  
+  .routes-sublink , .routes-sublink-last {
+    position: relative;
+    width: 100%;    
+    display: block;    
+  }
+
+  .deco-sub-routes-container .action {    
+    @include handheld-nav-action;
+  }
+
+  .routes-sublink:hover {    
+    @include color-top-level-navigation-hover;
+  }
+
+  .deco-sub-routes-container:not(.path):last-child {
+    border-bottom: 1px solid $navigation-active-sub-background-color;
+  }
+
+  .routes-sublink-last {          
+    @include header-1;
+    @include spacing-title;    
+    text-align: center;
+  }
+  .routes-sublink-last .decor {
+    display: none;
+  }
+
+
+  // lists
+  .deco-list {
+    @include mobile-remove-margin;
+  }
+
+  .deco-list {    
+    .list-item-container {      
+      border-top: 1px solid $navigation-active-sub-background-color;
+      @include color-top-level-navigation;
+      display: block;
+      padding: 10px;      
+    }    
+    .list-item-container:hover {
+      @include color-top-level-navigation-hover;
+    }
+    .list-item-container {
+      color: black;
+    }
+    .text-additional {
+      display: block;
+      padding-left: 30px;
+      font-size: 80%;
+    }
+    .list-item {
+      .decor {
+        @include decor-left;
+      }
+      .action {
+        margin-top: 4px;
+        float: right;
+      }
+    }    
+  }
+  .deco-list:last-child {
+    border-bottom: 1px solid $navigation-active-sub-background-color;
+  }
+
+
+
+}

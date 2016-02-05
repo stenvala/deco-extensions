@@ -1,0 +1,229 @@
+@media screen and (min-width: 1025px) {
+
+  nav {        
+    position: fixed;
+    left: 0px;
+    top: 0px;
+    right: 0px;        
+    padding: 0px 0px 0px 50px;    
+    box-shadow: 0px 4px 4px -2px $shadow-color;       
+    font-size: 17px;    
+    z-index: 10;    
+    background-color: white;
+  }
+
+  nav {    
+    .link-icon {
+      position: absolute;      
+      color: $main-title-color;
+      left: 15px;
+      top: 15px;
+    }
+    .nav-container {      
+    }
+    // contains all links
+    .mainlinks {          
+      width: 100%;            
+      padding: 0px;      
+      position: relative;      
+    }
+    // contains mainlinks
+    .mainlinks-container {      
+      width: 100%;
+      padding-right: 300px;        
+      height: 53px;      
+      position: relative;      
+      display: block;
+      overflow: hidden;
+    }    
+    // contains single main link
+    .mainlinks-container {
+      .mainlink-container  {        
+        height: 100%;                  
+        padding: 0px;
+        margin: 0px;      
+        display: inline-block;      
+        position: relative;          
+        white-space: nowrap;              
+      }       
+      .mainlink-container {
+        border-left: $navigation-border;  
+      }
+      .mainlink-container:first-of-type {
+        border-left: none;      
+      }    
+    }
+    // contains showmore links and login
+    .showmore-container, .login-container {
+      height: 100%;                  
+      padding: 0px;
+      display: inline-block;
+      top: 0px;
+      white-space: nowrap;
+    }    
+    .showmore-container {
+      text-align: center;
+      width: 100px;   
+      position: absolute;
+      right: 200px;
+      z-index: 1000;      
+    }
+    .login-container {      
+      position: absolute;    
+      right: 0px;
+      text-align: right;
+      width: 200px;
+      white-space: nowrap;
+    }            
+    .mainlinks-container .mainlink, 
+    .showmorelink,    
+    .login {        
+      margin: 0px;      
+      padding-left: 30px;        
+      padding-right: 30px;  
+      padding-top: 15px;
+      padding-bottom: 14px;           
+    }
+
+    .showmore-mainlinks-container .mainlink,     
+    .login-mainlinks-container .mainlink {        
+      text-align: left;
+    }
+    .action {
+      display: none;
+    }    
+    .mainlinks-container .sublinks, 
+    .showmore-mainlinks-container, 
+    .login-mainlinks-container,
+    .login-layer {
+      position: fixed;
+      margin-top: 50px;      
+      max-height: 0px;    
+      overflow: hidden;
+      opacity: 0;
+      transition: margin-top 0.5s ease-in-out, opacity 0.5s ease-in-out, max-height .7s cubic-bezier(1,0,1,0);      
+    }
+    .showmore-mainlinks-container {                  
+      right: 200px;      
+    }    
+    .login-menu, .login-layer {
+      right: 0px;
+    }
+    .mainlinks-container .mainlink-container:hover .sublinks, 
+      .showmore-container:hover .showmore-mainlinks-container,
+      .login-container:hover .login-mainlinks-container,
+      .login-container .login-layer.active {    
+      overflow: initial;
+      opacity: 1;
+      margin-top: 0px;
+      max-height: 1000px;
+      transition: margin-top 0.5s ease-in-out, opacity 0.5s ease-in-out, max-height .1s linear; 
+    }                       
+    .sublink-container {                   
+      border-bottom: 1px solid $navigation-active-sub-background-color;
+    }     
+
+    .sublink-container:last-of-type {
+      border-bottom: none;
+    }
+
+    .mainlinks-container .sublink-container,
+    .showmore-mainlinks-container .mainlink, 
+    .showmore-mainlinks-container .sublink-container,
+    .login-mainlinks-container .mainlink,    
+    .login-mainlinks-container .sublink-container {                
+      padding-left: 30px;        
+      padding-right: 30px;  
+      padding-top: 10px;
+      padding-bottom: 10px;                 
+    }              
+    .mainlinks-container .sublink-container {
+      text-align: middle;                   
+    }
+
+    .showmore-mainlinks-container .mainlink-container,
+    .login-mainlinks-container .mainlink-container {
+      display: block;
+      background-color: $navigation-background-color;
+      border-bottom: $navigation-border;        
+    }
+    .showmore-mainlinks-container .mainlink-container:last-child,
+      .login-mainlinks-container .mainlink-container:last-child {
+      border-bottom: none;
+    }            
+
+    .login-mainlinks-container {
+      right: 0px;
+    }
+
+    .showmore-mainlinks-container .mainlink-container,
+    .login-mainlinks-container .mainlink-container {                  
+      position: relative;
+    }
+
+    .showmore-mainlinks-container .sublinks,
+    .login-mainlinks-container .sublinks {        
+      position: absolute;
+      right: 0px;
+      margin-right: 100%;      
+      padding-right: 50px;
+      text-align: right;  
+      max-width: 0px;
+      opacity: 0;      
+      top: 0px;
+      transition: padding-right 0.5s ease-in-out, opacity 0.5s ease-in-out, max-width 1s cubic-bezier(1,0,1,0);      
+    }
+
+    .showmore-mainlinks-container .mainlink-container:hover .sublinks,
+      .login-mainlinks-container .mainlink-container:hover .sublinks {      
+      opacity: 1; 
+      padding-right: 0px;            
+      float: right;
+      max-width: 400px;
+      transition: opacity 0.5s ease-in-out, padding-right 0.5s ease-in-out, max-width 0.1s linear;                   
+    }
+
+    .login-layer {                  
+      background-color: $navigation-background-color;          
+      padding: 15px;
+      line-height: 200%;
+    }
+  }  
+
+  // route links
+  .deco-sub-routes {    
+    margin: 10px 0px 10px 0px;   
+  }
+
+  .deco-sub-routes-container {
+    display: inline-block;    
+    // white-space: nowrap;
+    .deco-sub-routes {      
+    }
+    .deco-separator {  
+      display: none;
+    }    
+    .routes-sublink {
+      @include color-and-border;      
+      @include color-and-border-ws-large;            
+    }
+    .routes-sublink:first-child {
+      margin-left: 0px;
+    }
+    .routes-sublink:hover {
+      @include color-and-border-hover;
+    }
+    .routes-sublink-last {
+      font-size: 200%;
+      @include color-and-border-active;
+      @include color-and-border-ws-large;
+    }    
+    .decor {
+      @include decor-left;
+    }
+    .routes-sublink-last .decor {
+      width: 50px;
+    }
+  }  
+  
+}

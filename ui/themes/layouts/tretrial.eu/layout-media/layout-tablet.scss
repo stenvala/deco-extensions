@@ -1,0 +1,104 @@
+@media screen and (min-width: 961px) and (max-width: 1024px) {
+    
+  .main-content {
+    position: absolute;
+    left: 300px;
+    box-shadow: 0px 0px 5px 1px rgb(200,200,200);
+    z-index: 100;
+    min-height: 100%;
+    background-color: white;
+    right: 0px;    
+    overflow-y: scroll;    
+    overflow-x: hidden;
+    -webkit-overflow-scrolling: touch;
+    transition: all .4s ease-in-out;
+  }
+  
+  .main-content.show-links {
+    right: 300px;
+    left: 0px;
+    transition: all .4s ease-in-out;
+  }
+  
+  .hide-medium, .hide-tablet {    
+    display: none;       
+  }
+  
+  .head-link-container {
+    width: 300px;
+  }
+
+  .logo {    
+    background-color: $logo-background-color-small;      
+    border-bottom: 1px solid $logo-border-color-small;
+    padding: 10px;    
+    margin: 0px;
+    font-size: 60px;      
+    color: $logo-color-small;   
+    z-index: -1;
+    .container {
+      text-align: center;
+    }
+    .subtitle {
+      display: none;
+    }
+    .menu {
+      display: none;
+    }
+    .right-menu {
+      position: absolute;
+      position: absolute; 
+      right: 5px;
+      white-space: nowrap;
+      font-size: 14px;
+      padding-top: 4px;
+      font-weight: normal;  
+      font-size: 15px;
+    }
+  }
+
+  .footer {
+    position: absolute;
+    bottom: 0px;
+    box-shadow: 0px 0px 6px 0px $footer-shadow-color;  
+    background-color: $footer-background-color;  
+    color: $footer-color;
+    width: 100%;
+    .container {
+      padding: 20px;
+    }
+  }
+
+  .app-content {
+    margin: 10px;       
+  }
+  
+    // lists
+  .deco-list {
+    .list-item-container {
+      display: block;
+    }
+    .list-item {
+      @include color-and-border;      
+      @include color-and-border-ws-large;      
+      display: inline-block;
+      margin-left: 0px;
+    }
+    .list-item:hover {
+      @include color-and-border-hover;
+      @include link;
+    }
+    .text-additional {
+      margin-left: 20px;
+    }
+    .list-item {
+      .decor {
+        @include decor-left;
+      }
+    }
+    .action {
+      display: none;
+    }      
+  }
+
+}

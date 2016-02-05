@@ -1,0 +1,14 @@
+<div class="deco-sub-routes">
+  <div class="deco-sub-routes-container path" ng-repeat="link in linkStack">    
+    <span class="routes-sublink" deco-link route-reverse param="$index+1" ng-show="($index+1) != linkStack.length">      
+        <i class="fa decor" ng-class="link.Node.icon"></i>{{link.Node.title}}                    
+        <i class="fa fa-chevron-left action hide-desktop hide-tablet"></i>
+    </span>               
+    
+    <span class="routes-sublink-last" ng-show="($index+1) == linkStack.length && showLast">      
+        <i class="fa decor" ng-class="link.Node.icon"></i>{{link.Node.title}}                    
+    </span>        
+    
+    <span class="deco-separator path"></span>
+  </div>  
+</div>

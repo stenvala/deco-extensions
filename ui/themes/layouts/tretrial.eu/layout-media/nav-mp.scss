@@ -5,18 +5,24 @@
     z-index: 50;
     width: 80%;
     overflow-y: scroll;    
-    left: -100%;
-    top: 0px;
-    bottom: 0px;
+    left: 0px;
+    top: -150%;
+    bottom: 150%;
+    //display: none;
     padding: 0px;        
-    transition: left .1s linear;
+    -webkit-overflow-scrolling: touch;       
+    transition: all 0.1s linear;
     transition-delay: 0.5s;
     -webkit-transition-delay: 0.5s;
   }
 
   nav.active {
-    left: 0px;
-    transition: left 0s linear;
+    bottom: 0px;
+    top: 0px;   
+    display: block;
+    transition: all 0s linear;
+    //transition-delay: 0s;
+    //-webkit-transition-delay: 0s;
   }
   
   /*

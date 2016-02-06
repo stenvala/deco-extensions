@@ -7,23 +7,22 @@
   .head-link-container {
     position: fixed;
     z-index: -50;    
-    overflow-y: scroll;        
-    display: none;
+    overflow-y: scroll;            
     top: 0px;
+    right: 100%;
     bottom: 0px;
-    padding: 0px;     
+    padding: 0px;             
+    -webkit-overflow-scrolling: touch;                
+    //transition: right .1s linear;
+    transition-delay: 0.5s;
+    -webkit-transition-delay: 0.5s;
+  }
+  
+  .head-link-container.active {    
     right: 0px;
-    -webkit-overflow-scrolling: touch;            
-  }
-  
-  .head-link-container.active {
-    display: block; 
-  }
-  
-  .head-link-container.hidenav {
-    right: -100%;
-    transition: left .1s linear;
-  }
+    transition-delay: 0s;
+    -webkit-transition-delay: 0s;
+  }  
 
   .head-link-container {
     .links-title {      

@@ -5,17 +5,26 @@
     z-index: 50;
     width: 80%;
     overflow-y: scroll;    
-    left: 0px;
+    left: -100%;
     top: 0px;
     bottom: 0px;
     padding: 0px;        
-    transition: left .5s linear;
+    transition: left .1s linear;
+    transition-delay: 0.5s;
+    -webkit-transition-delay: 0.5s;
   }
 
+  nav.active {
+    left: 0px;
+    transition: left 0s linear;
+  }
+  
+  /*
   nav.hidenav {
     left: -100%;        
     transition: left .1s linear;
   }
+  */
   
   nav .nav-container {        
     position: absolute;

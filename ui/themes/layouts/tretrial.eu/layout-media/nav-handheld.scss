@@ -25,7 +25,7 @@
       overflow: hidden;
       padding: 0px;
     }
-    .mainlink-container, .login-container {              
+    .mainlink-container {              
       @include handheld-nav-container;
     }             
     .showmore-container {

@@ -3,11 +3,6 @@
   .hide-small, .hide-mobile {    
     display: none;       
   }
-  
-  body {
-    //overflow: scroll;
-    //-webkit-overflow-scrolling: touch;
-  }  
 
   .page-title {
     text-align: center;    
@@ -88,6 +83,7 @@
     overflow-y: scroll;    
     overflow-x: hidden;
     padding: 0px 10px 50px 10px;
+    -webkit-overflow-scrolling: touch;  
     //border-bottom: 1px solid $logo-border-color-small;
     //box-shadow: 0px 0px 5px 1px rgb(200,200,200);
   }

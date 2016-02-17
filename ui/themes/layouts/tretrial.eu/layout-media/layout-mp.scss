@@ -7,7 +7,7 @@
   .page-title {
     text-align: center;    
   }
-  
+
   .main-content {
     position: fixed;
     left: 0px;
@@ -17,7 +17,8 @@
     box-shadow: 0px 0px 5px 1px rgb(200,200,200);
     z-index: 100;    
     transition: all .4s ease-in-out;   
-    background-color: white;       
+    background-color: white;     
+    overflow: hidden;
   }
 
   .main-content.show-nav {
@@ -35,8 +36,13 @@
   .head-link-container {
     width: 80%;
   }
-  
+
   .logo {    
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    height: 50px;
     background-color: $logo-background-color-small;      
     border-bottom: 1px solid $logo-border-color-small;
     padding: 10px;    
@@ -71,25 +77,31 @@
   }
 
   .app-container {
+    position: fixed;
+    overflow-x: hidden;
+    overflow-y: scroll;    
+    -webkit-overflow-scrolling: touch;  
     background-color: white;
+    top: 50px;
     left: 0px;
+    right: 0px;
+    bottom: 0px;
     z-index: -10;
     max-height: 100%;    
     //min-height: 100%;
     // bottom: 0px;
     //top: 0px;
     //right: 0px;
-    position: relative;    
-    overflow-y: scroll;    
+    position: relative;        
     overflow-x: hidden;
     padding: 0px 10px 50px 10px;
-    -webkit-overflow-scrolling: touch;  
+
     //border-bottom: 1px solid $logo-border-color-small;
     //box-shadow: 0px 0px 5px 1px rgb(200,200,200);
   }
 
   .app-content {    
-   // overflow-x: hidden;
+    // overflow-x: hidden;
   }
 
   .app-content {
@@ -99,7 +111,7 @@
       max-height: 400px;                 
     }
   }
-  
+
   /*
   .footer {    
     background-color: $logo-background-color-small;  
@@ -113,11 +125,11 @@
     }
   }
   */
-  
+
   ul {
     padding-left: 25px;    
   }
-  
+
   h1 {
     text-align: center;
   }

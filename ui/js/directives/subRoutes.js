@@ -14,8 +14,8 @@ angular.module('deco').directive('decoSubRoutes',
                 $scope.path = $location.path();
                                                 
                 var getSublinks = function(links, base){                  
-                  for (var i=0;i<links.length;i++){
-                    var fullPath = base + links[i].Node.path;                    
+                  for (var i=0;i<links.length;i++){                    
+                    var fullPath = base + links[i].Schema.path;                    
                     var reg = new RegExp('^' + fullPath);
                     if ($scope.path.match(reg) != null){
                       if (links[i].Contents.length == 0){

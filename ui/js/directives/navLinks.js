@@ -41,8 +41,8 @@ angular.module('deco').directive('decoNavLinks',
                 $scope.showAny = function (collection) {
                   for (var key in collection) {
                     if (collection.hasOwnProperty(key) &&
-                            collection[key].Node.isActive &&
-                            collection[key].Node.showInIndex) {
+                            collection[key].Schema.isActive &&
+                            collection[key].Schema.showInIndex) {
                       return true;
                     }
                   }

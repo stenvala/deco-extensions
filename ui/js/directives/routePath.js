@@ -23,7 +23,7 @@
                   
                   var setLinkStack = function (links, base) {
                     for (var i = 0; i < links.length; i++) {
-                      var fullPath = base + links[i].Node.path;
+                      var fullPath = base + links[i].Schema.path;
                       var title = null;
                       for (var key in $routeParams) {
                         var rpRef = new RegExp('/:' + key + '$');
@@ -39,7 +39,7 @@
                       if ($scope.path.match(reg) != null) {
                         if (fullPath == $scope.path) {
                           if (title != null) {
-                            links[i].Node.title = title;
+                            links[i].Schema.title = title;
                           }
                           $scope.linkStack.push(links[i]);
                           return;

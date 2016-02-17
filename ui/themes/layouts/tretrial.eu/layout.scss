@@ -129,7 +129,7 @@ figure, .center {
   overflow: hidden;
 }
 
-figure img, img.block {
+figure img, img.block, video {
   display: table;
   margin: auto;  
   max-width: 100%;
@@ -137,8 +137,9 @@ figure img, img.block {
 
 img, video {
   max-width: 100%;
-  border-radius: 10px;  
-  -webkit-border-radius: 10px;  
+  border-radius: 4px;  
+  overflow: hidden;
+  -webkit-border-radius: 4px;  
 }
 
 img.no-border {

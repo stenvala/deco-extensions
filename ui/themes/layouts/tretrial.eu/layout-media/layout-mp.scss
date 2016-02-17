@@ -5,8 +5,8 @@
   }
   
   body {
-    overflow: scroll;
-    -webkit-overflow-scrolling: touch;
+    //overflow: scroll;
+    //-webkit-overflow-scrolling: touch;
   }  
 
   .page-title {
@@ -99,9 +99,8 @@
   .app-content {
     img {
       display: table;
-      margin: auto;
-      padding: 5px 0px 5px 0px;      
-      max-height: 400px;           
+      margin: auto;         
+      max-height: 400px;                 
     }
   }
   

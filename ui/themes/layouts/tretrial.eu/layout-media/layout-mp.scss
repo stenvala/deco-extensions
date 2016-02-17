@@ -38,11 +38,11 @@
   }
 
   .logo {    
-    position: fixed;
-    top: 0px;
-    left: 0px;
-    right: 0px;
-    height: 50px;
+    //position: fixed;
+    //top: 0px;
+    //left: 0px;
+    //right: 0px;
+    //height: 50px;
     background-color: $logo-background-color-small;      
     border-bottom: 1px solid $logo-border-color-small;
     padding: 10px;    
@@ -51,6 +51,15 @@
     color: $logo-color-small;   
     z-index: -5;
   }
+  .logo.move-right {
+    //left: 80%;
+    //right: -80%;
+  }
+  .logo.move-left {
+    //left: -80%;
+    //right: 80%;
+  }
+
   .logo {
     .container {
       text-align: center;      
@@ -82,7 +91,7 @@
     overflow-y: scroll;    
     -webkit-overflow-scrolling: touch;  
     background-color: white;
-    top: 50px;
+    //top: 50px;
     left: 0px;
     right: 0px;
     bottom: 0px;

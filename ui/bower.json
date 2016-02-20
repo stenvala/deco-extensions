@@ -30,10 +30,11 @@
     "angular-translate": "~2.7.0",
     "angular-translate-loader-url": "~2.7.0",
     "angular-dialog-service": "~5.2.6",
-    "angular-ui-bootstrap-datetimepicker": "~0.11.2"
+    "angular-ui-bootstrap-datetimepicker": "~0.11.2",    
+    "ocModal": "~0.1.12"
   },
   "resolutions": {
-    "angular": ">1.2.6",
+    "angular": "1.5.0",
     "jquery": "~1.9.1",
     "webcomponentsjs": "^0.6.0",
     "angular-sanitize": "^1.3",

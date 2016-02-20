@@ -20,7 +20,8 @@
     "ace-builds/src-noconflict/mode-html.js",
     "angular-ui-ace/ui-ace.js",
     "angular-dialog-service/dist/dialogs.min.js",
-    "angular-ui-bootstrap-datetimepicker/datetimepicker.js",
+    "angular-ui-bootstrap-datetimepicker/datetimepicker.js",        
+    "ocModal/dist/ocModal.min.js",
     "jquery/jquery.min.js",
     "jquery-backstretch/jquery.backstretch.min.js"
   ],

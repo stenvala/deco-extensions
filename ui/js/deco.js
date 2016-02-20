@@ -12,4 +12,6 @@ angular.module('deco', [
   'pascalprecht.translate',
   'dialogs.main',
   'ui.bootstrap',
-  'ui.bootstrap.datetimepicker']);
+  'ui.bootstrap.datetimepicker',
+  'oc.modal'
+]);

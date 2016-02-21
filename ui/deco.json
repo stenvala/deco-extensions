@@ -23,7 +23,9 @@
     "angular-ui-bootstrap-datetimepicker/datetimepicker.js",        
     "ocModal/dist/ocModal.min.js",
     "jquery/jquery.min.js",
-    "jquery-backstretch/jquery.backstretch.min.js"
+    "jquery-backstretch/jquery.backstretch.min.js",
+    "masonry/dist/masonry.pkgd.min.js",
+    "imagesloaded/imagesloaded.pkgd.min.js"
   ],
   "decoBase": "js",
   "deco": [

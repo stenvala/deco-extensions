@@ -23,7 +23,6 @@ class Instagram {
     $url = "https://api.instagram.com/v1/tags/$tag/media/recent?access_token=" . self::$accessToken;
     $url.= "&count=$count";
     $url .= is_null($maxid) ? '' : "&max_tag_id=$maxid";  
-    error_log($url);
     $data = self::executeGet($url);    
     \deco\extensions\cache\Cache::set($key, $data);
     return $data;

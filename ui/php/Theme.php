@@ -9,6 +9,7 @@ class Theme {
   protected $theme;
   protected $colors;
   protected $parameters = array();
+  protected $ga = array();
   protected $css = array();
   protected $js = array();
   protected $deco = array();
@@ -86,6 +87,14 @@ class Theme {
     return $this;
   }
 
+  public function withGoogleAnalytics($ua, $domain) {
+    $this->ga = array(
+        'UA' => $ua,
+        'domain' => $domain
+    );
+    return $this;
+  }
+
   public function addToThemeCss($files) {
     array_merge($this->themeCssExtra, $files);
     return $this;
@@ -145,17 +154,17 @@ class Theme {
   public function buildDecoJs($to) {
     // bower includes
     $base = __DIR__ . "/../{$this->deco['bowerBase']}/";
-    $files = Util::padArrayValues($base,$this->deco['bower']);
+    $files = Util::padArrayValues($base, $this->deco['bower']);
     $string = Util::getFilesContents($files);
 
     $base = __DIR__ . "/../{$this->deco['decoBase']}/";
-    $files = Util::padArrayValues($base,$this->deco['deco']);
+    $files = Util::padArrayValues($base, $this->deco['deco']);
     $string .= Util::getFilesContents($files);
 
     $all = preg_replace('#(-min)?.js$#', '-all.js', $to);
     file_put_contents("$this->webroot/$all", $string);
     $res = Util::minimizeJs($string);
-    file_put_contents("$this->webroot/$to", $res);    
+    file_put_contents("$this->webroot/$to", $res);
     return $this;
   }
 
@@ -185,7 +194,28 @@ class Theme {
     print $this->getComponent('logo');
     print $this->getComponent('ngView');
     print $this->getComponent('footer');
-    print "\n\n</div\n\n</body>";
+    print "\n\n</div>\n";
+    if (count($this->ga) > 0) {
+      print "<script>
+  (function (i, s, o, g, r, a, m) {
+    i['GoogleAnalyticsObject'] = r;
+    i[r] = i[r] || function () {
+      (i[r].q = i[r].q || []).push(arguments)
+    }, i[r].l = 1 * new Date();
+    a = s.createElement(o),
+            m = s.getElementsByTagName(o)[0];
+    a.async = 1;
+    a.src = g;
+    m.parentNode.insertBefore(a, m)
+  })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+
+  ga('create', '{$this->ga['UA']}', '{$this->ga['domain']}');
+  ga('require', 'displayfeatures');
+  ga('send', 'pageview');
+</script>";
+    }
+
+    print "</body>";
     print "\n\n</html>";
   }
 

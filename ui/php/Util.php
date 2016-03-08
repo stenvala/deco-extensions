@@ -51,6 +51,29 @@ class Util {
     return $array;
   }
 
+  static public function buildScss($pattern, $to) {
+    $selected = array();
+    if (!is_array($pattern)) {
+      $pattern = array($pattern);
+    }    
+    foreach ($pattern as $pat) {
+      $files = glob($pat);
+      $str = "";
+      foreach ($files as $file) {
+        if (!in_array($file, $selected)) {
+          array_push($selected, $file);
+          $str .= file_get_contents($file) . PHP_EOL;
+        }
+      }
+    }    
+    $tmpfname = tempnam("/tmp", "style.css");
+    $handle = fopen($tmpfname, "w");
+    fwrite($handle, $str);
+    fclose($handle);  
+    shell_exec("/usr/local/bin/scss $tmpfname $to");
+    unlink($tmpfname);
+  }
+
   static public function minimizeJs($str) {
     /* Compilation levels
      * 
@@ -82,8 +105,8 @@ class Util {
     $tmpfname = tempnam("/tmp", "style.css");
     $handle = fopen($tmpfname, "w");
     fwrite($handle, $scss);
-    fclose($handle);    
-    shell_exec("/usr/local/bin/scss $tmpfname $to");    
+    fclose($handle);
+    shell_exec("/usr/local/bin/scss $tmpfname $to");
     unlink($tmpfname);
   }
 

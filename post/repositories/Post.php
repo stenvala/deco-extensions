@@ -2,41 +2,41 @@
 
 namespace deco\extensions\post\repositories;
 
-class Post extends \deco\essentials\prototypes\mono\Row {
+class Post extends \deco\essentials\prototypes\mono\Schema {
  
   /**
-   * @type: integer
-   * @references: table: User; column: id; onUpdate: cascade; onDelete: cascade;  
-   * @index: true
+  * @type integer
+   * @references table: User; column: id; onUpdate: cascade; onDelete: cascade;  
+  * @index true
    */
   protected $ownerId;
   
   /**   
-   * @type: string
-   * @validation: minLength: 1; maxLength: 100     
+  * @type string
+  * @validation minLength: 1; maxLength: 100     
    */
   
   protected $title;  
   
   /**   
-   * @type: string  
-   * @lazy: true
-   * @default: NULL
+  * @type string  
+  * @lazy true
+  * @default NULL
    */
   protected $content;
   
   /**
-   * @type: timestamp   
-   * @default: CURRENT_TIMESTAMP   
-   * @set: false
+  * @type timestamp   
+  * @default CURRENT_TIMESTAMP   
+  * @set false
    */
   protected $created;    
   
   /**
-   * @type: timestamp   
-   * @default: CURRENT_TIMESTAMP   
-   * @onUpdate: CURRENT_TIMESTAMP
-   * @set: false
+  * @type timestamp   
+  * @default CURRENT_TIMESTAMP   
+  * @onUpdate URRENT_TIMESTAMP
+  * @set false
    */
   protected $modified;
 

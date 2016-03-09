@@ -1,6 +1,6 @@
 <div class="mainlink-container" ng-repeat="link in links" 
      ng-class="{active: isActive(link.Schema.path)}"
-     ng-show="link.Schema.showInIndex && doesFit(this, type)"> 
+     ng-show="link.Schema.showInIndex && doesFit($index,type)"> 
 
   <div class="mainlink"       
        deco-toggle                   
@@ -36,7 +36,6 @@
         <i class="fa decor" ng-class="sublink.Schema.icon"></i>{{sublink.Schema.title}}            
         <i class="action fa fa-chevron-right"></i>
       </div>
-
 
     </div>      
   </div>

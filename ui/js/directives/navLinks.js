@@ -35,7 +35,7 @@ angular.module('deco').directive('decoNavLinks',
                   else {
                     $(sublinks).addClass('show');
                   }
-                }
+                };
 
                 // has sublinks
                 $scope.showAny = function (collection) {
@@ -47,14 +47,14 @@ angular.module('deco').directive('decoNavLinks',
                     }
                   }
                   return false;
-                }
+                };
 
                 // to test main link action icon if sublinks are opened, fix this
                 // use element to determine, this is only ng-class related thing
                 $scope.areSublinksOpened = function (index) {
                   var sublinks = $(element).find('.sublinks')[index];                    
                   return $(sublinks).hasClass('show');
-                }
+                };
               }
             };
           }]);

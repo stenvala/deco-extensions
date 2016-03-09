@@ -3,8 +3,8 @@
     <!-- show logo -->
     <div class="hide-large nav-logo nav-brand"
          deco-toggle                   
-       element="nav,.main-content"
-       toggle-class="active,show-nav"         
+         element="nav,.main-content"
+         toggle-class="active,show-nav"         
          >
       [[logoTitle]]
     </div>   
@@ -26,17 +26,18 @@
       </div>     
 
       <!-- mainlinks that don't fit into normal view -->
-      <div class="showmore-container"            
-           ng-show="anyHidden">
+      <div class="showmore-container-placeholder">
+        <div class="showmore-container" ng-show="anyHidden">
 
-        <div class="showmorelink">
-          <i class="fa fa-plus-square-o"></i>    
-        </div>
+          <div class="showmorelink">
+            <i class="fa fa-plus-square-o"></i>    
+          </div>
 
-        <div class="showmore-mainlinks-container">        
-          <deco-nav-links links="links" does-fit="doesFit" type="extended">
+          <div class="showmore-mainlinks-container">        
+            <deco-nav-links links="links" does-fit="doesFit" type="extended">
 
-          </deco-nav-links>         
+            </deco-nav-links>         
+          </div>
         </div>
 
       </div>            

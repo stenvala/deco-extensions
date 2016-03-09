@@ -54,19 +54,23 @@
       }    
     }
     // contains showmore links and login
-    .showmore-container, .login-container {
+    .showmore-container, .login-container, .showmore-container-placeholder {
       height: 100%;                  
       padding: 0px;
       display: inline-block;
       top: 0px;
       white-space: nowrap;
     }    
-    .showmore-container {
-      text-align: center;
-      width: 100px;   
+    
+    .showmore-container-placeholder {
       position: absolute;
       right: 200px;
-      z-index: 1000;      
+    }
+    
+    .showmore-container, .showmore-container-placeholder {
+      text-align: center;
+      width: 100px;               
+      z-index: 1000;            
     }
     .login-container {      
       position: absolute;    

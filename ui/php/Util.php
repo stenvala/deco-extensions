@@ -6,13 +6,9 @@ class Util {
 
   static public function getFilesContents($pattern) {
     $files = self::getPaths($pattern);
-    $included = array();
     $str = "";
     foreach ($files as $file) {
-      if (!in_array($file, $included)) {
-        array_push($included, $file);
-        $str .= file_get_contents($file);
-      }
+      $str .= file_get_contents($file);
     }
     return $str;
   }
@@ -52,26 +48,34 @@ class Util {
   }
 
   static public function buildScss($pattern, $to) {
-    $selected = array();
-    if (!is_array($pattern)) {
-      $pattern = array($pattern);
-    }    
-    foreach ($pattern as $pat) {
-      $files = glob($pat);
-      $str = "";
-      foreach ($files as $file) {
-        if (!in_array($file, $selected)) {
-          array_push($selected, $file);
-          $str .= file_get_contents($file) . PHP_EOL;
-        }
-      }
-    }    
+    $str = self::getFilesContents($pattern);
+    self::compileScss($str, $to);
+  }
+
+  static public function compileScss($scss, $to) {
     $tmpfname = tempnam("/tmp", "style.css");
     $handle = fopen($tmpfname, "w");
-    fwrite($handle, $str);
-    fclose($handle);  
+    fwrite($handle, $scss);
+    fclose($handle);
     shell_exec("/usr/local/bin/scss $tmpfname $to");
     unlink($tmpfname);
+  }
+
+  static public function buildDecoJs($to) {
+    $deco = json_decode(file_get_contents(__DIR__ . '/../deco.json'), true);
+    // bower includes
+    $base = __DIR__ . "/../{$deco['bowerBase']}/";
+    $files = Util::padArrayValues($base, $deco['bower']);
+    $string = Util::getFilesContents($files);
+
+    $base = __DIR__ . "/../{$deco['decoBase']}/";
+    $files = Util::padArrayValues($base, $deco['deco']);
+    $string .= Util::getFilesContents($files);
+
+    $all = preg_replace('#(.min)?.js$#', '.all.js', $to);
+    file_put_contents("$all", $string);
+    $res = Util::minimizeJs($string);
+    file_put_contents("$to", $res);    
   }
 
   static public function minimizeJs($str) {
@@ -99,15 +103,6 @@ class Util {
     $statusCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
     curl_close($ch);
     return $res;
-  }
-
-  static public function compileScss($scss, $to) {
-    $tmpfname = tempnam("/tmp", "style.css");
-    $handle = fopen($tmpfname, "w");
-    fwrite($handle, $scss);
-    fclose($handle);
-    shell_exec("/usr/local/bin/scss $tmpfname $to");
-    unlink($tmpfname);
   }
 
 }

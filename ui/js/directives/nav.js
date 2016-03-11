@@ -22,7 +22,7 @@
               return true;
             }
             var offset = $($('.mainlinks-container .mainlink')[el]).offset();
-            if (offset.top > 0) {
+            if (offset.top > 0) {              
               $scope.anyHidden = true;
             }
             return offset.top > 0;

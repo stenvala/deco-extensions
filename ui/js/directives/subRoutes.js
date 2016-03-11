@@ -9,8 +9,7 @@ angular.module('deco').directive('decoSubRoutes',
               },
               link: function ($scope, element, attrs) {
                 
-                var links = decoNav.getNavigation();
-                
+                var links = decoNav.getNavigation();                
                 $scope.path = $location.path();
                                                 
                 var getSublinks = function(links, base){                  

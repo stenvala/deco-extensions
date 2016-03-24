@@ -14,15 +14,15 @@ angular.module('deco').directive('decoSubRoutes',
                                                 
                 var getSublinks = function(links, base){                  
                   for (var i=0;i<links.length;i++){                    
-                    var fullPath = base + links[i].Schema.path;                    
+                    var fullPath = base + links[i].PageSchema.path;                    
                     var reg = new RegExp('^' + fullPath);
                     if ($scope.path.match(reg) != null){
-                      if (links[i].Contents.length == 0){
+                      if (links[i].Children.length == 0){
                         return [];
                       } else if (fullPath == $scope.path){
-                        return links[i].Contents;
+                        return links[i].Children;
                       } else {
-                        return getSublinks(links[i].Contents,fullPath);
+                        return getSublinks(links[i].Children,fullPath);
                       }
                     }                    
                   }

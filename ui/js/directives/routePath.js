@@ -23,7 +23,7 @@
                   
                   var setLinkStack = function (links, base) {
                     for (var i = 0; i < links.length; i++) {
-                      var fullPath = base + links[i].Schema.path;
+                      var fullPath = base + links[i].PageSchema.path;
                       var title = null;
                       for (var key in $routeParams) {
                         var rpRef = new RegExp('/:' + key + '$');
@@ -39,13 +39,13 @@
                       if ($scope.path.match(reg) != null) {
                         if (fullPath == $scope.path) {
                           if (title != null) {
-                            links[i].Schema.title = title;
+                            links[i].PageSchema.title = title;
                           }
                           $scope.linkStack.push(links[i]);
                           return;
                         } else {
                           $scope.linkStack.push(links[i]);
-                          setLinkStack(links[i].Contents, fullPath);
+                          setLinkStack(links[i].Children, fullPath);
                         }
                       }
                     }

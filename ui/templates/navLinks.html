@@ -1,39 +1,39 @@
 <div class="mainlink-container" ng-repeat="link in links" 
-     ng-class="{active: isActive(link.Schema.path)}"
-     ng-show="link.Schema.showInIndex && doesFit($index,type)"> 
+     ng-class="{active: isActive(link.PageSchema.path)}"
+     ng-show="link.PageSchema.showInIndex && doesFit($index,type)"> 
 
   <div class="mainlink"       
        deco-toggle                   
        element="nav,.main-content"
        toggle-class="active,show-nav"
-       ng-click="goto(link.Schema.path)">
+       ng-click="goto(link.PageSchema.path)">
 
-    <i class="fa decor" ng-class="link.Schema.icon"></i>{{link.Schema.title}}            
+    <i class="fa decor" ng-class="link.PageSchema.icon"></i>{{link.PageSchema.title}}            
 
-    <i class="action fa fa-chevron-right" ng-hide="showAny(link.Contents)"></i>
+    <i class="action fa fa-chevron-right" ng-hide="showAny(link.Children)"></i>
 
     <i class="action fa fa-plus" 
-       ng-show="showAny(link.Contents) && !(isActive(link.Schema.path) || areSublinksOpened($index))"
+       ng-show="showAny(link.Children) && !(isActive(link.PageSchema.path) || areSublinksOpened($index))"
        ng-click="toggleSubLinksIn($event)"           
        ></i>
 
     <i class="action fa fa-chevron-down" 
-       ng-show="showAny(link.Contents) && (isActive(link.Schema.path) || areSublinksOpened($index))"
+       ng-show="showAny(link.Children) && (isActive(link.PageSchema.path) || areSublinksOpened($index))"
        ng-click="toggleSubLinksIn($event)"></i>
 
   </div>
 
-  <div class="sublinks" ng-class="{selected: isActive(link.Schema.path)}">
-    <div class="sublink-container" ng-repeat="sublink in link.Contents" 
-         ng-show="sublink.Schema.showInIndex"
-         ng-class="{active: isActive(link.Schema.path + sublink.Schema.path)}">       
+  <div class="sublinks" ng-class="{selected: isActive(link.PageSchema.path)}">
+    <div class="sublink-container" ng-repeat="sublink in link.Children" 
+         ng-show="sublink.PageSchema.showInIndex"
+         ng-class="{active: isActive(link.PageSchema.path + sublink.PageSchema.path)}">       
 
       <div class="sublink"
            deco-toggle                   
            element="nav,.main-content"
            toggle-class="active,show-nav"
-           ng-click="goto(link.Schema.path + sublink.Schema.path)">
-        <i class="fa decor" ng-class="sublink.Schema.icon"></i>{{sublink.Schema.title}}            
+           ng-click="goto(link.PageSchema.path + sublink.PageSchema.path)">
+        <i class="fa decor" ng-class="sublink.PageSchema.icon"></i>{{sublink.PageSchema.title}}            
         <i class="action fa fa-chevron-right"></i>
       </div>
 

@@ -2,7 +2,7 @@
 
 namespace deco\extensions\post\repositories;
 
-class Post extends \deco\essentials\prototypes\mono\Table {
+class Post extends \deco\essentials\prototypes\table\Table {
  
   /**
   * @type integer

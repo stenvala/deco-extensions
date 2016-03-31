@@ -14,7 +14,7 @@ angular.module('deco').directive("decoDraggable", function () {
               'dragstart',
               function (e) {
                 e.dataTransfer.effectAllowed = 'move';
-                e.dataTransfer.setData('startIndex',$scope.index);
+                e.dataTransfer.setData('startIndex',$scope.index);                
                 e.dataTransfer.setData('Data', JSON.stringify($scope.data));
                 $('.tt-schema-drop-zone').addClass('display');
                 $scope.$apply();

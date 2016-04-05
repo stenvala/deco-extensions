@@ -1,6 +1,6 @@
 <div class="mainlink-container" ng-repeat="link in links" 
      ng-class="{active: isActive(link.PageSchema.path)}"
-     ng-show="link.PageSchema.showInIndex && doesFit($index,type)"> 
+     ng-show="link.PageSchema.showInIndex && doesFit($index, type) && permissionControl(link.PageSchema)"> 
 
   <div class="mainlink"       
        deco-toggle                   
@@ -25,7 +25,7 @@
 
   <div class="sublinks" ng-class="{selected: isActive(link.PageSchema.path)}">
     <div class="sublink-container" ng-repeat="sublink in link.Children" 
-         ng-show="sublink.PageSchema.showInIndex"
+         ng-show="sublink.PageSchema.showInIndex && permissionControl(sublink.PageSchema)"
          ng-class="{active: isActive(link.PageSchema.path + sublink.PageSchema.path)}">       
 
       <div class="sublink"

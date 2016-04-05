@@ -5,7 +5,8 @@ angular.module('deco').directive('decoNavLinks',
               templateUrl: 'deco.navLinks',
               scope: {
                 links: '=links',
-                doesFit: '=doesFit'
+                doesFit: '=doesFit',
+                permission: '=permission'
               },
               link: function ($scope, element, attrs) {
                 $scope.type = attrs.type;
@@ -23,6 +24,14 @@ angular.module('deco').directive('decoNavLinks',
                   }
                   return false;
                 }
+
+                $scope.permissionControl = function(node){                 
+                  if (node && 'permissions' in node){                    
+                    return $scope.permission(node.permissions);
+                  }
+                  return true;
+  
+                };
 
                 // activated when main link extender is clicked
                 $scope.toggleSubLinksIn = function (event) {

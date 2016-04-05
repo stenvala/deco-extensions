@@ -33,7 +33,8 @@
     "angular-ui-bootstrap-datetimepicker": "~0.11.2",
     "ocModal": "~0.1.12",
     "masonry": "~4.0.0",
-    "imagesloaded": "~4.1.0"
+    "imagesloaded": "~4.1.0",
+    "eonasdan-bootstrap-datetimepicker": "^4.17.37"
   },
   "resolutions": {
     "angular": ">=1.0.8",

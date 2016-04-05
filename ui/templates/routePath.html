@@ -1,7 +1,8 @@
-<div class="deco-sub-routes">  
-  <div class="deco-sub-routes-container path" ng-repeat="link in linkStack">    
-    <span class="routes-sublink" deco-link route-reverse param="$index+1" ng-show="($index+1) != linkStack.length">      
-        <i class="fa decor" ng-class="link.PageSchema.icon"></i>{{link.PageSchema.title}}                    
+<div class="deco-sub-routes">        
+    
+  <div class="deco-sub-routes-container path" ng-repeat="link in linkStack">        
+    <span class="routes-sublink" deco-link route-reverse param="linkStack.length - $index - 1" ng-show="($index+1) != linkStack.length">      
+        <i class="fa decor" ng-class="link.PageSchema.icon"></i>{{link.PageSchema.title}}             
         <i class="fa fa-chevron-left action hide-desktop hide-tablet"></i>
     </span>               
     

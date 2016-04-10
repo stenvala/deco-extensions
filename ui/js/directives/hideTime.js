@@ -1,3 +1,4 @@
+// hides ans shows elements based on utc time stamps given to attributes show-from and hide-at
 angular.module('deco').directive('decoHideTime',
         [function () {
             return {
@@ -7,12 +8,13 @@ angular.module('deco').directive('decoHideTime',
               scope: {},
               template: '<ng-transclude ng-show="show"></ng-transclude>',
               link: function ($scope, element, attrs) {
-
+                // read timestamp from value passed via attribute
                 var getTime = function (value) {
                   var regex = new RegExp(/^([0-9]*)-([0-9]*)-([0-9]*)\s([0-9]*):([0-9]*):([0-9]*)$/);
                   var val = value.match(regex);
                   if (!val) {
-                    return new Date();
+                    console.log('Time "' + value + '" does not match timestamp based regular expression.');
+                    return new Date(); // return now, if 
                   }
                   var t = new Date();
                   t.setUTCFullYear(parseInt(val[1]));
@@ -31,17 +33,14 @@ angular.module('deco').directive('decoHideTime',
                     $scope.show = false;
                   }
                 }
-                //
-                if ($scope.show) {
-                  if ('hideAt' in attrs) {
-                    var time = getTime(attrs.hideAt);
-                    if (time < new Date().getTime()) {
-                      $scope.show = false;
-                    }
+                //                
+                if ($scope.show && 'hideAt' in attrs) {
+                  var time = getTime(attrs.hideAt);
+                  if (time < new Date().getTime()) {
+                    $scope.show = false;
                   }
                 }
                 //
-
               }
             };
           }]

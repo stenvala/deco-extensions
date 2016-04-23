@@ -22,7 +22,7 @@ class Instagram {
     }
     $url = "https://api.instagram.com/v1/tags/$tag/media/recent?access_token=" . self::$accessToken;
     $url.= "&count=$count";
-    $url .= is_null($maxid) ? '' : "&max_tag_id=$maxid";  
+    $url .= is_null($maxid) ? '' : "&max_tag_id=$maxid";      
     $data = self::executeGet($url);    
     \deco\extensions\cache\Cache::set($key, $data);
     return $data;
@@ -48,7 +48,12 @@ class Instagram {
         'Accept: application/json'));
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
     $reply = curl_exec($ch);
-    return json_decode($reply, true)['data'];
+    $json = json_decode($reply, true);    
+    $data = $json['data'];
+    foreach ($data as $key => $value){      
+      $data[$key]['max_tag_id'] = $json['pagination']['next_max_id'];
+    }
+    return $data;
   }
 
 

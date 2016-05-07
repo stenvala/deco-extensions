@@ -1,0 +1,9 @@
+<div class="deco-sub-routes">  
+  <div class="deco-sub-routes-container" ng-repeat="link in links">    
+    <span class="routes-sublink" deco-link route-sibling param="getSibling(link.PageSchema.path)">      
+        <i class="fa decor" ng-class="link.PageSchema.icon"></i>{{link.PageSchema.title}}                    
+        <i class="fa fa-chevron-right action hide-desktop hide-tablet"></i>
+    </span>        
+    <span class="deco-separator"></span>
+  </div>  
+</div>

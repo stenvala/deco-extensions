@@ -21,8 +21,9 @@ class Instagram {
       return \deco\extensions\cache\Cache::get($key);
     }
     $url = "https://api.instagram.com/v1/tags/$tag/media/recent?access_token=" . self::$accessToken;
-    $url.= "&count=$count";
+    $url .= "&count=$count";
     $url .= is_null($maxid) ? '' : "&max_tag_id=$maxid";      
+    $url .= '&scope=basic+public_content+follower_list+comments+relationships+likes';
     $data = self::executeGet($url);    
     \deco\extensions\cache\Cache::set($key, $data);
     return $data;
@@ -47,8 +48,8 @@ class Instagram {
     curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: application/json',
         'Accept: application/json'));
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-    $reply = curl_exec($ch);
-    $json = json_decode($reply, true);    
+    $reply = curl_exec($ch);    
+    $json = json_decode($reply, true);        
     $data = $json['data'];
     foreach ($data as $key => $value){      
       $data[$key]['max_tag_id'] = $json['pagination']['next_max_id'];

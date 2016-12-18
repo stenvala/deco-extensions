@@ -32,24 +32,22 @@
                     obj.headers[key] = headers[key];
                   }                  
                 }
-                $http(obj).
-                        success(function (data, status, headers, config) {
+                $http(obj).then(function (data) {
                           var reply = {
-                            data: data,
-                            status: status,
-                            headers: headers,
-                            config: config
-                          };
+                            data: data.data,
+                            status: data.status,
+                            headers: data.headers,
+                            config: data.config
+                          };                          
                           def.resolve(reply);
-                        }).
-                        error(function (data, status, headers, config) {
+                        },function (data) {
                           var reply = {
-                            data: data,
-                            status: status,
-                            headers: headers,
-                            config: config
+                            data: data.data,
+                            status: data.status,
+                            headers: data.headers,
+                            config: data.config
                           };
-                          def.resolve(reply);
+                          def.reject(reply);
                         });
                 return def.promise;
               };

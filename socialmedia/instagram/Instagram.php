@@ -7,7 +7,7 @@ class Instagram {
   static private $accessToken;
   static private $TMPKEY;
 
-  const CACHE_TIME = 30;
+  const CACHE_TIME = 0;
 
   static public function config($accessToken) {
     $mid = array_key_exists('SERVER_NAME', $_SERVER) ? $_SERVER['SERVER_NAME'] : 'cli';
@@ -48,11 +48,13 @@ class Instagram {
     curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: application/json',
         'Accept: application/json'));
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-    $reply = curl_exec($ch);    
+    $reply = curl_exec($ch);            
     $json = json_decode($reply, true);        
     $data = $json['data'];
-    foreach ($data as $key => $value){      
-      $data[$key]['max_tag_id'] = $json['pagination']['next_max_id'];
+    foreach ($data as $key => $value){            
+      //print_r($json);
+      //die();
+      //$data[$key]['max_tag_id'] = $json['pagination']['max_tag_id'];
     }
     return $data;
   }
